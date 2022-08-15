@@ -75,7 +75,7 @@ if [ $downgrade = true ]; then
         echo "Leaving localadmin account as Admin"
     else
         echo "Making $useraccount a normal user"
-        #/usr/sbin/dseditgroup -o edit -d $useraccount -t user admin
+        /usr/sbin/dseditgroup -o edit -d $useraccount -t user admin
     fi
   done < <(dscl . list /Users UniqueID | awk '$2 >= 501 {print $1}')
 fi
